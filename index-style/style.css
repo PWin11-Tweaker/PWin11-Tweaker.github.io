@@ -1,0 +1,209 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.search-container {
+    text-align: center; /* Выравнивание текста по центру */
+}
+/* Стили для поля поиска */
+#search-input {
+    background-color: black;
+    color: white;
+    border: 2px solid green;
+    padding: 5px 10px;
+    font-size: 16px;
+    width: 200px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: limegreen;
+}
+
+/* Стили для кнопки */
+button {
+    padding: 6px 12px;
+    font-size: 16px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkgreen;
+}
+
+.modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Тёмный фон с прозрачностью */
+    z-index: 10;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    border: 2px solid #00ff00;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+    z-index: 20;
+    width: 300px;
+    text-align: center;
+    position: relative; /* Добавляем относительное позиционирование */
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px; /* Расстояние от верхнего края окна */
+    right: 10px; /* Расстояние от правого края окна */
+    background: none;
+    border: none;
+    color: #00ff00;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #fff;
+}
+h2 {
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+
+
+.center-text {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    color: greenyellow;
+  }
+
+
+
+
+  .fig {
+    display: block; /* Блочный элемент (для старых браузеров) */
+    text-align: center; /* Выравнивание по центру */
+    font-style: italic; /* Курсивное начертание */
+    margin-top: 0; /* Отступ сверху */
+ 
+  }
+
+
+
+
+
+  * {box-sizing: border-box;}
+  form {
+    position: relative;
+    width: 300px;
+    margin: 0 auto;
+  }
+  input, button {
+    border: none;
+    outline: none;
+    border-radius: 3px;
+  }
+  input {
+    width: 100%;
+    height: 42px;
+    background: #F9F0DA;
+    padding-left: 15px;
+  }
+  button {
+    height: 26px;
+    width: 26px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #F15B42;
+    cursor: pointer;
+  }
+  button:before {
+    content: "\f105";
+    font-family: FontAwesome;
+    color: #F9F0DA;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+/* Основной стиль для навигационной панели */
+.navbar {
+    position: fixed; /* Фиксируем панель внизу */
+    bottom: 0; /* Панель будет внизу */
+    width: 100%; /* Полная ширина */
+    display: flex; /* Используем flexbox для выравнивания элементов */
+    justify-content: center; /* Центрируем кнопки по горизонтали */
+    align-items: center; /* Центрируем элементы по вертикали */
+    padding: 10px 0; /* Добавляем отступы по вертикали */
+    background-color: transparent; /* Убираем фон */
+}
+
+/* Ссылки внутри навигационной панели */
+.navbar a {
+    display: inline-block; /* Кнопки будут располагаться по линии */
+    color: #ffffff; /* Цвет текста */
+    text-align: center; /* Выровнять текст по центру */
+    padding: 14px 20px; /* Отступы для кнопок */
+    text-decoration: none; /* Убираем подчеркивание */
+    font-family: 'Doto', sans-serif; /* Шрифт */
+    font-size: 1.1em; /* Размер шрифта */
+    margin: 0 15px; /* Добавляем отступы между кнопками */
+}
+
+/* Изменения при наведении на ссылки */
+.navbar a:hover {
+    color: greenyellow; /* Цвет текста при наведении */
+    background-color: transparent; /* Убираем фон при наведении */
+}
+
+/* Оптимизация для мобильных устройств (менее 768px) */
+@media (max-width: 768px) {
+    /* Для мобильных устройств кнопки остаются по центру */
+    .navbar {
+        flex-wrap: wrap; /* Обеспечивает перенос кнопок на новые строки, если не помещаются */
+        justify-content: center; /* Центрируем элементы */
+    }
+
+    /* Для каждой кнопки уменьшаем отступы и шрифт */
+    .navbar a {
+        padding: 10px 12px; /* Уменьшаем отступы */
+        font-size: 1em; /* Размер шрифта */
+        margin: 5px 10px; /* Добавляем небольшой отступ между кнопками */
+    }
+}
+
+/* Оптимизация для маленьких экранов (менее 480px) */
+@media (max-width: 480px) {
+    /* Для очень маленьких экранов уменьшаем кнопки ещё больше */
+    .navbar a {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+}

@@ -1,0 +1,67 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #222;
+    color: #00ff00;
+    font-family: Arial, sans-serif;
+}
+.content {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 80px; /* Отступ, чтобы кнопки не касались NavBar */
+}
+.social-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #000;
+    border: 2px solid #00ff00;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+.social-button:hover {
+    transform: scale(1.1);
+    background-color: #00ff00;
+    color: #000;
+}
+
+/* The navigation bar */
+.navbar {
+    position: fixed; /* Set the navbar to fixed position */
+    bottom: 0; /* Position the navbar at the bottom of the page */
+    width: 100%; /* Full width */
+    background-color: #111; /* Optional: Set the background color of the navbar */
+    display: flex; /* Use flexbox to arrange the items */
+    justify-content: flex-end; /* Align items to the right (changed from flex-start) */
+}
+
+/* Links inside the navbar */
+.navbar a {
+    display: block; /* Make the link block-level */
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'Doto', sans-serif; /* Apply font family Doto */
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+    border: 1px solid transparent;
+    color: greenyellow;
+}
