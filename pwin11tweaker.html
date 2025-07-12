@@ -5,342 +5,323 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PWin11 Tweaker - Information</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="General/style.css">
-    <style>
-        .particle {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.9) 0%, rgba(59, 130, 246, 0) 70%);
-            filter: blur(15px);
-            animation: pulse 2s infinite ease-in-out;
-            pointer-events: none;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
-
-        /* WinUI 3 styles */
-        .winui-card {
-            background: #1f1f1f;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 16px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .winui-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .winui-button {
-            background: #0078D4;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 4px;
-            transition: background 0.2s ease, transform 0.2s ease;
-        }
-
-        .winui-button:hover {
-            background: #005BB5;
-            transform: scale(1.05);
-        }
-
-        .winui-nav {
-            background: #252525;
-            border-bottom: 1px solid #333;
-        }
-
-        .winui-accent {
-            color: #0078D4;
-        }
-
-        @keyframes winui-fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .winui-fade-in {
-            animation: winui-fadeIn 0.3s ease-in-out;
-        }
-
-        /* Dynamic glow effect for accent */
-        .highlight-section {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .highlight-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(0, 120, 212, 0.2) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            pointer-events: none; /* Prevent pseudo-element from blocking clicks */
-        }
-
-        .highlight-section:hover::before {
-            opacity: 1;
-        }
-
-        /* Animation for text */
-        @keyframes bounceIn {
-            0% {
-                transform: scale(0.95);
-                opacity: 0;
-            }
-            60% {
-                transform: scale(1.05);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        .bounce-in {
-            animation: bounceIn 0.8s ease-out;
-        }
-
-        /* Responsive styles */
-        .nav-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .burger-menu {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
-
-        @media (max-width: 640px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                right: 0;
-                background: #252525;
-                width: 100%;
-                padding: 1rem;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .burger-menu {
-                display: block;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            h3 {
-                font-size: 1.25rem;
-            }
-
-            p.text-xl {
-                font-size: 1rem;
-            }
-
-            .winui-card {
-                padding: 12px;
-            }
-
-            .winui-button {
-                padding: 6px 12px;
-                font-size: 0.875rem;
-            }
-
-            img.w-20 {
-                width: 60px;
-                height: 60px;
-            }
-
-            .particle {
-                width: 50px;
-                height: 50px;
-                filter: blur(10px);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="General/liquid-glass.css">
 </head>
-<body class="bg-gray-900 text-white font-sans relative overflow-x-hidden">
-    <!-- Fireflies as HTML elements -->
-    <div id="particle-container" class="absolute top-0 left-0 w-full h-full z-0"></div>
+<body class="font-sans relative overflow-x-hidden">
+    <!-- Mystical Particles -->
+    <div id="particle-container" class="fixed top-0 left-0 w-full h-full pointer-events-none z-0">
+        <div class="liquid-particle w-24 h-24 mystical-pulse" style="top: 15%; left: 85%;"></div>
+        <div class="liquid-particle w-16 h-16 mystical-pulse" style="top: 40%; left: 10%; animation-delay: 1.5s;"></div>
+        <div class="liquid-particle w-20 h-20 mystical-pulse" style="top: 70%; left: 75%; animation-delay: 2.5s;"></div>
+        <div class="liquid-particle w-12 h-12 mystical-pulse" style="top: 25%; left: 50%; animation-delay: 3.5s;"></div>
+        <div class="liquid-particle w-18 h-18 mystical-pulse" style="top: 85%; left: 30%; animation-delay: 0.5s;"></div>
+    </div>
 
     <!-- Navigation -->
-    <nav class="winui-nav fixed top-0 w-full z-10">
+    <nav class="liquid-nav fixed top-0 w-full z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold winui-accent">PWin11</h1>
+            <h1 class="text-2xl font-bold liquid-accent ghostly-float">PWin11</h1>
             <div class="burger-menu">☰</div>
-            <div class="nav-links space-x-4">
-                <a href="index.html#home" class="hover:text-blue-400 transition-all winui-fade-in">Home</a>
-                <a href="pwin11tweaker_download.html" class="hover:text-blue-400 transition-all winui-fade-in">Installation</a>
-                <a href="index.html#contact" class="hover:text-blue-400 transition-all winui-fade-in">Contact</a>
+            <div class="nav-links">
+                <a href="index.html#home" class="hover:text-blue-400 transition-all liquid-fade-in liquid-text-shadow">Home</a>
+                <a href="pwin11tweaker_download.html" class="hover:text-blue-400 transition-all liquid-fade-in liquid-text-shadow">Installation</a>
+                <a href="index.html#contact" class="hover:text-blue-400 transition-all liquid-fade-in liquid-text-shadow">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Main Section -->
-    <section id="info" class="min-h-screen flex items-center justify-center py-16 relative z-1">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <img src="General/new-logo-1.0.11-png-version.png" alt="Logo" class="w-20 h-20 mx-auto mb-4 rounded-full winui-fade-in bounce-in">
-            <h2 class="text-4xl font-bold mb-6 winui-accent winui-fade-in bounce-in">PWin11 Tweaker</h2>
-            <p class="text-xl mb-8 winui-fade-in bounce-in">A tweaker for the Windows 11 operating system</p>
-            <div class="flex justify-center space-x-4 mb-12 bounce-in">
-                <a href="https://github.com/PWin11-Tweaker/PWin11-Tweaker/tree/main/readme" class="winui-button winui-fade-in">View Documentation</a>
-                <a href="https://github.com/PWin11-Tweaker/PWin11-Tweaker/issues/new?labels=bug&template=bug-report---.md" class="winui-button winui-fade-in">Report a Bug</a>
-                <a href="pwin11tweaker_download.html" class="winui-button winui-fade-in">Latest Release</a>
-            </div>
-
-            <!-- Getting Started -->
-            <div class="winui-card p-6 rounded-xl mb-8 highlight-section">
-                <h3 class="text-2xl font-semibold mb-4 winui-accent bounce-in">Getting Started</h3>
-                <ol class="text-left list-decimal list-inside space-y-2 bounce-in">
-                    <li>Download: Clone the repository or download the latest version from the GitHub page.</li>
-                    <li>Installation: Ensure that .NET and WinUI 3 dependencies are installed, then run the application.</li>
-                    <li>Run as Administrator: For full functionality, right-click and select "Run as Administrator".</li>
-                    <li>Explore: Navigate through the menu to access optimization, cleanup, and customization options.</li>
-                </ol>
-            </div>
-
-            <!-- About the Project -->
-            <div class="winui-card p-6 rounded-xl mb-8 highlight-section">
-                <h3 class="text-2xl font-semibold mb-4 winui-accent bounce-in">About the Project</h3>
-                <img src="https://github.com/PWin11-Tweaker/PWin11-Tweaker/blob/main/img/screenshot.png?raw=true" alt="Tweaker Screenshot" class="w-full h-auto rounded-lg mb-4 bounce-in">
-                <p class="text-left bounce-in">
-                    PWin11 Tweaker is a lightweight open-source utility that allows you to customize various aspects of Windows 11 without delving into complex system settings or third-party software. Focused on performance optimization, system cleanup, privacy protection, and interface customization, this tool simplifies the process of tailoring your operating system to your specific needs. Intuitive navigation and responsive design make it accessible to all, while advanced features cater to tech enthusiasts.
-                </p>
-            </div>
-
-            <!-- Key Features -->
-            <div class="winui-card p-6 rounded-xl mb-8 highlight-section">
-                <h3 class="text-2xl font-semibold mb-4 winui-accent bounce-in">Key Features</h3>
-                <ul class="text-left list-disc list-inside space-y-2 bounce-in">
-                    <li>System Optimization: Boost your system's performance by tweaking settings like startup programs, background processes, and visual effects.</li>
-                    <li>Privacy Protection: Control your data by disabling telemetry, clearing activity history, and managing location services.</li>
-                    <li>Interface Customization: Personalize the look of Windows 11 by switching themes, customizing the taskbar, and more.</li>
-                    <li>Temp Cleaner: Safely remove temporary files, recycle bin contents, browser cache, and Windows update leftovers to free up disk space.</li>
-                    <li>File Explorer Enhancements: Customize File Explorer behavior, enable hidden features, and improve navigation efficiency.</li>
-                    <li>Performance Tuning: Optimize gaming performance, power plans, and memory usage with a few clicks.</li>
-                    <li>User-Friendly Navigation: Seamlessly switch between settings pages using a modern NavigationView interface with smooth, detailed animations.</li>
-                    <li>Admin Alert: Notifies you if the application is launched without administrator privileges, ensuring full access to system settings.</li>
-                </ul>
-            </div>
-
-            <!-- System Requirements -->
-            <div class="winui-card p-6 rounded-xl mb-8 highlight-section">
-                <h3 class="text-2xl font-semibold mb-4 winui-accent bounce-in">System Requirements</h3>
-                <ul class="text-left list-disc list-inside space-y-2 bounce-in">
-                    <li>Operating System: Windows 11 (64-bit version)</li>
-                    <li>Platform: .NET 9.0</li>
-                    <li>Permissions: Administrator privileges recommended</li>
-                </ul>
-            </div>
-
-            <!-- Contributing -->
-            <div class="winui-card p-6 rounded-xl mb-8 highlight-section">
-                <h3 class="text-2xl font-semibold mb-4 winui-accent bounce-in">Contributing</h3>
-                <p class="text-left bounce-in">
-                    We welcome contributions! Whether it's reporting a bug, requesting a feature, or improving the code, feel free to open an issue or submit a pull request. Check out our contribution guidelines for more details.
-                </p>
-            </div>
-
-            <!-- License -->
-            <div class="winui-card p-6 rounded-xl mb-8 highlight-section">
-                <h3 class="text-2xl font-semibold mb-4 winui-accent bounce-in">License</h3>
-                <p class="text-left bounce-in">
-                    Distributed under the MIT License. See <a href="https://github.com/PWin11-Tweaker/PWin11-Tweaker/blob/main/LICENSE" class="text-accent hover:underline">MIT License</a> for more information.
-                </p>
-            </div>
-
-            <!-- Contact -->
-            <div class="winui-card p-6 rounded-xl mb-8 highlight-section">
-                <h3 class="text-2xl font-semibold mb-4 winui-accent bounce-in">Contact</h3>
-                <p class="text-left bounce-in">
-                    On Telegram: <a href="https://t.me/PWin11_news" class="text-accent hover:underline">@PWin11_news</a> (in English) and <a href="https://t.me/pwin11_news_russian" class="text-accent hover:underline">@pwin11_news_russian</a> (in Russian).<br>
-                    My official Telegram channel: <a href="https://t.me/ph1ncyn" class="text-accent hover:underline">@ph1ncyn</a>
-                </p>
-            </div>
-
-            <!-- Versions -->
-            <div class="winui-card p-6 rounded-xl mb-8 highlight-section">
-                <h3 class="text-2xl font-semibold mb-4 winui-accent bounce-in">Versions</h3>
-                <p class="text-left bounce-in">
-                    If X.0-9.X.0-9, it’s a sub-version.<br>
-                    This is a main version: 1-9,X,1-9,X.<br>
-                    <strong>docs:</strong> Indicates changes made to documentation or Readme files.<br>
-                    <strong>fix:</strong> Indicates updates without a version change, but a quick fix for a bug in the project, included in a nested release.<br>
-                    X.X.X.X-1-9: Indicates the number of changes in the version.
-                </p>
+    <!-- Hero Section -->
+    <section id="info" class="min-h-screen flex items-center justify-center py-20 px-4 relative z-1">
+        <div class="max-w-5xl mx-auto text-center">
+            <img src="General/new-logo-1.0.11-png-version.png" alt="PWin11 Logo" class="w-24 h-24 mx-auto mb-6 rounded-full liquid-fade-in mystical-pulse">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 liquid-accent liquid-text-glow liquid-fade-in-delay-1">PWin11 Tweaker</h2>
+            <p class="text-xl md:text-2xl mb-8 liquid-text-shadow liquid-fade-in-delay-2">A mystical tweaker for the Windows 11 operating system</p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12 liquid-fade-in-delay-3">
+                <a href="https://github.com/PWin11-Tweaker/PWin11-Tweaker/tree/main/readme" class="liquid-button liquid-button-primary">📚 Documentation</a>
+                <a href="https://github.com/PWin11-Tweaker/PWin11-Tweaker/issues/new?labels=bug&template=bug-report---.md" class="liquid-button liquid-button-danger">🐛 Report Bug</a>
+                <a href="pwin11tweaker_download.html" class="liquid-button liquid-button-secondary">⬇️ Latest Release</a>
             </div>
         </div>
     </section>
 
+    <!-- Main Content Container -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 space-y-12">
+        
+        <!-- Getting Started -->
+        <div class="liquid-card liquid-highlight p-8">
+            <h3 class="text-2xl md:text-3xl font-semibold mb-6 liquid-accent liquid-fade-in">🚀 Getting Started</h3>
+            <ol class="text-left list-decimal list-inside space-y-4 text-lg liquid-fade-in-delay-1">
+                <li class="liquid-text-shadow"><strong>Download:</strong> Clone the repository or download the latest version from the GitHub page.</li>
+                <li class="liquid-text-shadow"><strong>Installation:</strong> Ensure that .NET and WinUI 3 dependencies are installed, then run the application.</li>
+                <li class="liquid-text-shadow"><strong>Run as Administrator:</strong> For full functionality, right-click and select "Run as Administrator".</li>
+                <li class="liquid-text-shadow"><strong>Explore:</strong> Navigate through the menu to access optimization, cleanup, and customization options.</li>
+            </ol>
+        </div>
+
+        <!-- About the Project with Screenshot -->
+        <div class="liquid-card liquid-highlight p-8">
+            <h3 class="text-2xl md:text-3xl font-semibold mb-6 liquid-accent liquid-fade-in">🌟 About the Project</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="liquid-fade-in-delay-1">
+                    <img src="https://github.com/PWin11-Tweaker/PWin11-Tweaker/blob/main/img/screenshot.png?raw=true" 
+                         alt="PWin11 Tweaker Screenshot" 
+                         class="w-full h-auto rounded-xl liquid-image-container shadow-lg">
+                </div>
+                <div class="liquid-fade-in-delay-2">
+                    <p class="text-lg leading-relaxed liquid-text-shadow">
+                        PWin11 Tweaker is a lightweight open-source utility that allows you to customize various aspects of Windows 11 without delving into complex system settings or third-party software. Focused on performance optimization, system cleanup, privacy protection, and interface customization, this tool simplifies the process of tailoring your operating system to your specific needs.
+                    </p>
+                    <p class="text-lg leading-relaxed liquid-text-shadow mt-4">
+                        Intuitive navigation and responsive design make it accessible to all, while advanced features cater to tech enthusiasts.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Features Grid -->
+        <div class="liquid-card liquid-highlight p-8">
+            <h3 class="text-2xl md:text-3xl font-semibold mb-8 liquid-accent liquid-fade-in text-center">✨ Key Features</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="liquid-card p-6 liquid-fade-in-delay-1">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center mr-3 mystical-pulse">
+                            <span class="text-lg">⚡</span>
+                        </div>
+                        <h4 class="text-lg font-semibold liquid-accent">System Optimization</h4>
+                    </div>
+                    <p class="liquid-text-shadow">Boost your system's performance by tweaking settings like startup programs, background processes, and visual effects.</p>
+                </div>
+
+                <div class="liquid-card p-6 liquid-fade-in-delay-1">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-orange-500 flex items-center justify-center mr-3 mystical-pulse">
+                            <span class="text-lg">🔒</span>
+                        </div>
+                        <h4 class="text-lg font-semibold liquid-accent">Privacy Protection</h4>
+                    </div>
+                    <p class="liquid-text-shadow">Control your data by disabling telemetry, clearing activity history, and managing location services.</p>
+                </div>
+
+                <div class="liquid-card p-6 liquid-fade-in-delay-2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center mr-3 mystical-pulse">
+                            <span class="text-lg">🎨</span>
+                        </div>
+                        <h4 class="text-lg font-semibold liquid-accent">Interface Customization</h4>
+                    </div>
+                    <p class="liquid-text-shadow">Personalize the look of Windows 11 by switching themes, customizing the taskbar, and more.</p>
+                </div>
+
+                <div class="liquid-card p-6 liquid-fade-in-delay-2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-green-500 to-blue-500 flex items-center justify-center mr-3 mystical-pulse">
+                            <span class="text-lg">🧹</span>
+                        </div>
+                        <h4 class="text-lg font-semibold liquid-accent">Temp Cleaner</h4>
+                    </div>
+                    <p class="liquid-text-shadow">Safely remove temporary files, recycle bin contents, browser cache, and Windows update leftovers to free up disk space.</p>
+                </div>
+
+                <div class="liquid-card p-6 liquid-fade-in-delay-3">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center mr-3 mystical-pulse">
+                            <span class="text-lg">📁</span>
+                        </div>
+                        <h4 class="text-lg font-semibold liquid-accent">File Explorer Enhancements</h4>
+                    </div>
+                    <p class="liquid-text-shadow">Customize File Explorer behavior, enable hidden features, and improve navigation efficiency.</p>
+                </div>
+
+                <div class="liquid-card p-6 liquid-fade-in-delay-3">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-cyan-500 to-green-500 flex items-center justify-center mr-3 mystical-pulse">
+                            <span class="text-lg">🎯</span>
+                        </div>
+                        <h4 class="text-lg font-semibold liquid-accent">Performance Tuning</h4>
+                    </div>
+                    <p class="liquid-text-shadow">Optimize gaming performance, power plans, and memory usage with a few clicks.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Requirements -->
+        <div class="liquid-card liquid-highlight p-8">
+            <h3 class="text-2xl md:text-3xl font-semibold mb-6 liquid-accent liquid-fade-in">💻 System Requirements</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 liquid-fade-in-delay-1">
+                <div class="liquid-card p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center mx-auto mb-4 mystical-pulse">
+                        <span class="text-xl">🪟</span>
+                    </div>
+                    <h4 class="font-semibold liquid-accent mb-2">Operating System</h4>
+                    <p class="liquid-text-shadow">Windows 11 (64-bit version)</p>
+                </div>
+                <div class="liquid-card p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-orange-500 flex items-center justify-center mx-auto mb-4 mystical-pulse">
+                        <span class="text-xl">⚙️</span>
+                    </div>
+                    <h4 class="font-semibold liquid-accent mb-2">Platform</h4>
+                    <p class="liquid-text-shadow">.NET 9.0</p>
+                </div>
+                <div class="liquid-card p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center mx-auto mb-4 mystical-pulse">
+                        <span class="text-xl">🔑</span>
+                    </div>
+                    <h4 class="font-semibold liquid-accent mb-2">Permissions</h4>
+                    <p class="liquid-text-shadow">Administrator privileges recommended</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contributing & License Row -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Contributing -->
+            <div class="liquid-card liquid-highlight p-8">
+                <h3 class="text-2xl font-semibold mb-4 liquid-accent liquid-fade-in">🤝 Contributing</h3>
+                <p class="liquid-text-shadow leading-relaxed liquid-fade-in-delay-1">
+                    We welcome contributions! Whether it's reporting a bug, requesting a feature, or improving the code, feel free to open an issue or submit a pull request. Check out our contribution guidelines for more details.
+                </p>
+                <a href="https://github.com/PWin11-Tweaker/PWin11-Tweaker/blob/main/CONTRIBUTING.md" 
+                   class="liquid-button liquid-button-secondary mt-4 inline-block">
+                    📝 Contribution Guidelines
+                </a>
+            </div>
+
+            <!-- License -->
+            <div class="liquid-card liquid-highlight p-8">
+                <h3 class="text-2xl font-semibold mb-4 liquid-accent liquid-fade-in">📄 License</h3>
+                <p class="liquid-text-shadow leading-relaxed liquid-fade-in-delay-1">
+                    Distributed under the MIT License. This means you can freely use, modify, and distribute the software with proper attribution.
+                </p>
+                <a href="https://github.com/PWin11-Tweaker/PWin11-Tweaker/blob/main/LICENSE" 
+                   class="liquid-button liquid-button-primary mt-4 inline-block">
+                    📋 View MIT License
+                </a>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="liquid-card liquid-highlight p-8">
+            <h3 class="text-2xl md:text-3xl font-semibold mb-6 liquid-accent liquid-fade-in text-center">📞 Contact & Community</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="text-center liquid-fade-in-delay-1">
+                    <h4 class="text-xl font-semibold mb-4 liquid-accent">🌍 Official Channels</h4>
+                    <div class="space-y-3">
+                        <a href="https://t.me/PWin11_news" class="liquid-button liquid-button-primary block">
+                            🇺🇸 @PWin11_news (English)
+                        </a>
+                        <a href="https://t.me/pwin11_news_russian" class="liquid-button liquid-button-secondary block">
+                            🇷🇺 @pwin11_news_russian (Russian)
+                        </a>
+                    </div>
+                </div>
+                <div class="text-center liquid-fade-in-delay-2">
+                    <h4 class="text-xl font-semibold mb-4 liquid-accent">👤 Personal Contact</h4>
+                    <a href="https://t.me/ph1ncyn" class="liquid-button liquid-button-danger block">
+                        💬 @ph1ncyn (Developer)
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Versions Info -->
+        <div class="liquid-card liquid-highlight p-8">
+            <h3 class="text-2xl md:text-3xl font-semibold mb-6 liquid-accent liquid-fade-in">🔢 Version Information</h3>
+            <div class="liquid-text-shadow leading-relaxed space-y-4 liquid-fade-in-delay-1">
+                <p><strong>Sub-versions:</strong> If X.0-9.X.0-9, it's a sub-version.</p>
+                <p><strong>Main versions:</strong> This is a main version: 1-9,X,1-9,X.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="liquid-card p-4">
+                        <h4 class="font-semibold liquid-accent mb-2">📖 docs:</h4>
+                        <p class="text-sm">Changes to documentation or Readme files</p>
+                    </div>
+                    <div class="liquid-card p-4">
+                        <h4 class="font-semibold liquid-accent mb-2">🔧 fix:</h4>
+                        <p class="text-sm">Quick bug fixes without version change</p>
+                    </div>
+                    <div class="liquid-card p-4">
+                        <h4 class="font-semibold liquid-accent mb-2">🔄 X.X.X.X-1-9:</h4>
+                        <p class="text-sm">Number of changes in the version</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
-    <footer class="py-6 bg-gray-900 text-center relative z-1 winui-nav">
-        <p class="winui-fade-in">© 2025 PWin11 Tweaker. All rights reserved.</p>
+    <footer class="py-8 liquid-footer text-center relative z-1">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="liquid-text-shadow liquid-fade-in">
+                © 2025 PWin11 Tweaker. All rights reserved. Made with mystical energy ✨
+            </p>
+        </div>
     </footer>
 
-    <!-- Script for firefly animation -->
+    <!-- Enhanced particle animation script -->
     <script>
-        const container = document.getElementById('particle-container');
-        const particleCount = 4;
-
-        // Create particles
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = `${Math.random() * 100}vw`;
-            particle.style.top = `${Math.random() * 100}vh`;
-            container.appendChild(particle);
-        }
-
-        // Update positions on scroll
-        let lastScrollY = window.scrollY;
-        function updateParticles() {
-            const scrollY = window.scrollY;
-            const deltaY = scrollY - lastScrollY;
-            const particles = document.querySelectorAll('.particle');
-            particles.forEach(particle => {
-                let top = parseFloat(particle.style.top) + (deltaY * 0.1);
-                top = (top + 100) % 100; // Cyclic movement by height
-                particle.style.top = `${top}vh`;
-            });
-            lastScrollY = scrollY;
-            requestAnimationFrame(updateParticles);
-        }
-        updateParticles();
-
-        // Responsiveness
-        window.addEventListener('resize', () => {
-            const particles = document.querySelectorAll('.particle');
-            particles.forEach(particle => {
-                particle.style.left = `${Math.random() * 100}vw`;
-                particle.style.top = `${Math.random() * 100}vh`;
-            });
-        });
-
-        // Burger menu
+        // Burger menu functionality
         const burgerMenu = document.querySelector('.burger-menu');
         const navLinks = document.querySelector('.nav-links');
 
         burgerMenu.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Enhanced particle movement with random drift
+        let lastScrollY = window.scrollY;
+        const particles = document.querySelectorAll('.liquid-particle');
+        
+        function updateParticles() {
+            const scrollY = window.scrollY;
+            const deltaY = scrollY - lastScrollY;
+            
+            particles.forEach((particle, index) => {
+                const speed = 0.05 + (index * 0.02);
+                const driftSpeed = 0.01;
+                
+                // Get current position
+                let currentTop = parseFloat(particle.style.top);
+                let currentLeft = parseFloat(particle.style.left);
+                
+                // Apply scroll movement
+                let newTop = currentTop + (deltaY * speed);
+                
+                // Add random drift
+                currentLeft += (Math.random() - 0.5) * driftSpeed;
+                
+                // Wrap around screen
+                if (newTop > 100) newTop = -10;
+                if (newTop < -10) newTop = 100;
+                if (currentLeft > 100) currentLeft = -10;
+                if (currentLeft < -10) currentLeft = 100;
+                
+                particle.style.top = `${newTop}%`;
+                particle.style.left = `${currentLeft}%`;
+            });
+            
+            lastScrollY = scrollY;
+            requestAnimationFrame(updateParticles);
+        }
+        
+        updateParticles();
+
+        // Add interactive hover effects to cards
+        document.querySelectorAll('.liquid-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                // Add temporary glow effect
+                this.style.boxShadow = '0 0 30px rgba(78, 122, 199, 0.4), 0 15px 35px rgba(0, 0, 0, 0.3)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                // Remove temporary glow effect
+                this.style.boxShadow = '';
+            });
         });
     </script>
 </body>

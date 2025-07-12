@@ -5,98 +5,293 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download PWin11 Tweaker</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="General/style.css">
-    <style>
-        /* Responsive styles */
-        .nav-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .burger-menu {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
-
-        @media (max-width: 640px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                right: 0;
-                background: #252525;
-                width: 100%;
-                padding: 1rem;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .burger-menu {
-                display: block;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-
-            .release-card {
-                min-height: 300px;
-                padding-bottom: 60px;
-            }
-
-            .image-container img {
-                max-height: 150px;
-            }
-
-            .download-btn, .github-btn {
-                padding: 6px 12px;
-                font-size: 0.875rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="General/liquid-glass.css">
 </head>
-<body class="bg-gray-900 text-white font-sans">
+<body class="font-sans">
+    <!-- Mystical Particles -->
+    <div id="particle-container" class="fixed top-0 left-0 w-full h-full pointer-events-none z-0">
+        <div class="liquid-particle w-20 h-20 mystical-pulse" style="top: 10%; left: 90%;"></div>
+        <div class="liquid-particle w-14 h-14 mystical-pulse" style="top: 50%; left: 5%; animation-delay: 2s;"></div>
+        <div class="liquid-particle w-22 h-22 mystical-pulse" style="top: 80%; left: 85%; animation-delay: 1s;"></div>
+        <div class="liquid-particle w-16 h-16 mystical-pulse" style="top: 30%; left: 40%; animation-delay: 3s;"></div>
+        <div class="liquid-particle w-18 h-18 mystical-pulse" style="top: 70%; left: 60%; animation-delay: 0.5s;"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="winui-nav fixed top-0 w-full z-10">
+    <nav class="liquid-nav fixed top-0 w-full z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold winui-accent">PWin11 Tweaker</h1>
+            <h1 class="text-2xl font-bold liquid-accent ghostly-float">PWin11 Tweaker</h1>
             <div class="burger-menu">☰</div>
-            <div class="nav-links space-x-4">
-                <a href="index.html#home" class="hover:text-blue-400 transition-all">Home</a>
-                <a href="pwin11tweaker.html" class="hover:text-blue-400 transition-all">About PWin11 Tweaker</a>
-                <a href="index.html#contact" class="hover:text-blue-400 transition-all">Contact</a>
+            <div class="nav-links">
+                <a href="index.html#home" class="hover:text-blue-400 transition-all liquid-text-shadow">Home</a>
+                <a href="pwin11tweaker.html" class="hover:text-blue-400 transition-all liquid-text-shadow">About PWin11 Tweaker</a>
+                <a href="index.html#contact" class="hover:text-blue-400 transition-all liquid-text-shadow">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Installation Section -->
-    <section id="install" class="min-h-screen flex items-center justify-center py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold mb-8 text-center">Download PWin11 Tweaker</h2>
-            <div id="releases" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center py-20 px-4">
+        <div class="max-w-7xl mx-auto w-full">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 liquid-accent liquid-text-glow liquid-fade-in">
+                    🌟 Download PWin11 Tweaker
+                </h2>
+                <p class="text-xl md:text-2xl liquid-text-shadow liquid-fade-in-delay-1">
+                    Choose your mystical journey with the latest releases
+                </p>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loading" class="text-center liquid-fade-in">
+                <div class="liquid-card p-8 inline-block">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-500 to-orange-500 mystical-pulse"></div>
+                    <p class="text-xl liquid-text-shadow">Loading mystical releases...</p>
+                </div>
+            </div>
+
+            <!-- Releases Grid -->
+            <div id="releases" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style="display: none;">
                 <!-- Releases will be added via JS -->
+            </div>
+
+            <!-- Error State -->
+            <div id="error" class="text-center" style="display: none;">
+                <div class="liquid-card p-8 inline-block liquid-highlight">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-red-500 to-orange-500 flex items-center justify-center">
+                        <span class="text-2xl">⚠️</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 liquid-accent">Connection Failed</h3>
+                    <p class="liquid-text-shadow mb-4">Unable to load releases. Please try again later.</p>
+                    <a href="https://github.com/PWin11-Tweaker/PWin11-Tweaker/releases" 
+                       class="liquid-button liquid-button-primary">
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Guide -->
+    <section class="py-16 px-4 bg-gradient-to-b from-transparent to-black/10">
+        <div class="max-w-4xl mx-auto">
+            <div class="liquid-card liquid-highlight p-8">
+                <h3 class="text-2xl md:text-3xl font-bold mb-6 text-center liquid-accent liquid-fade-in">
+                    🚀 Quick Installation Guide
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="liquid-card p-6 liquid-fade-in-delay-1">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center mr-3 mystical-pulse">
+                                <span class="text-lg">1️⃣</span>
+                            </div>
+                            <h4 class="text-lg font-semibold liquid-accent">Download</h4>
+                        </div>
+                        <p class="liquid-text-shadow">Click the download button for your preferred release type (stable or pre-release).</p>
+                    </div>
+                    
+                    <div class="liquid-card p-6 liquid-fade-in-delay-2">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-orange-500 flex items-center justify-center mr-3 mystical-pulse">
+                                <span class="text-lg">2️⃣</span>
+                            </div>
+                            <h4 class="text-lg font-semibold liquid-accent">Extract</h4>
+                        </div>
+                        <p class="liquid-text-shadow">Extract the downloaded archive to your preferred location.</p>
+                    </div>
+                    
+                    <div class="liquid-card p-6 liquid-fade-in-delay-3">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center mr-3 mystical-pulse">
+                                <span class="text-lg">3️⃣</span>
+                            </div>
+                            <h4 class="text-lg font-semibold liquid-accent">Run as Admin</h4>
+                        </div>
+                        <p class="liquid-text-shadow">Right-click the executable and select "Run as Administrator" for full functionality.</p>
+                    </div>
+                    
+                    <div class="liquid-card p-6 liquid-fade-in-delay-3">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-green-500 to-blue-500 flex items-center justify-center mr-3 mystical-pulse">
+                                <span class="text-lg">4️⃣</span>
+                            </div>
+                            <h4 class="text-lg font-semibold liquid-accent">Enjoy</h4>
+                        </div>
+                        <p class="liquid-text-shadow">Start optimizing your Windows 11 experience with mystical powers!</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-6 bg-gray-900 text-center">
-        <p>© 2025 PWin11 Tweaker. All rights reserved.</p>
+    <footer class="py-8 liquid-footer text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="liquid-text-shadow liquid-fade-in">
+                © 2025 PWin11 Tweaker. All rights reserved. Made with mystical energy ✨
+            </p>
+        </div>
     </footer>
 
     <script src="General/script.js"></script>
     <script>
+        // Enhanced burger menu functionality
         const burgerMenu = document.querySelector('.burger-menu');
         const navLinks = document.querySelector('.nav-links');
 
         burgerMenu.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Enhanced particle movement
+        let lastScrollY = window.scrollY;
+        const particles = document.querySelectorAll('.liquid-particle');
+        
+        function updateParticles() {
+            const scrollY = window.scrollY;
+            const deltaY = scrollY - lastScrollY;
+            
+            particles.forEach((particle, index) => {
+                const speed = 0.03 + (index * 0.01);
+                const driftSpeed = 0.008;
+                
+                let currentTop = parseFloat(particle.style.top);
+                let currentLeft = parseFloat(particle.style.left);
+                
+                // Apply scroll movement
+                let newTop = currentTop + (deltaY * speed);
+                
+                // Add gentle drift
+                currentLeft += (Math.random() - 0.5) * driftSpeed;
+                
+                // Wrap around screen
+                if (newTop > 100) newTop = -10;
+                if (newTop < -10) newTop = 100;
+                if (currentLeft > 100) currentLeft = -10;
+                if (currentLeft < -10) currentLeft = 100;
+                
+                particle.style.top = `${newTop}%`;
+                particle.style.left = `${currentLeft}%`;
+            });
+            
+            lastScrollY = scrollY;
+            requestAnimationFrame(updateParticles);
+        }
+        
+        updateParticles();
+
+        // Enhanced release card loading with better error handling
+        async function loadReleases() {
+            const loadingEl = document.getElementById('loading');
+            const releasesEl = document.getElementById('releases');
+            const errorEl = document.getElementById('error');
+
+            try {
+                const response = await fetch('https://api.github.com/repos/PWin11-Tweaker/PWin11-Tweaker/releases');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const releases = await response.json();
+                
+                // Hide loading, show releases
+                loadingEl.style.display = 'none';
+                releasesEl.style.display = 'grid';
+                
+                // Clear existing content
+                releasesEl.innerHTML = '';
+                
+                releases.slice(0, 6).forEach((release, index) => {
+                    const releaseCard = createReleaseCard(release, index);
+                    releasesEl.appendChild(releaseCard);
+                });
+
+                // Add hover effects to newly created cards
+                addCardHoverEffects();
+                
+            } catch (error) {
+                console.error('Error loading releases:', error);
+                loadingEl.style.display = 'none';
+                errorEl.style.display = 'block';
+            }
+        }
+
+        function createReleaseCard(release, index) {
+            const card = document.createElement('div');
+            card.className = `liquid-release-card liquid-fade-in-delay-${Math.min(index + 1, 3)}`;
+            
+            const { images, text } = processReleaseBody(release.body);
+            const downloadUrl = release.assets && release.assets[0] && release.assets[0].browser_download_url ? release.assets[0].browser_download_url : '#';
+            const releaseType = release.prerelease ? 'pre-release' : 'stable';
+            const badgeClass = release.prerelease ? 'liquid-button-danger' : 'liquid-button-primary';
+            
+            card.innerHTML = `
+                <div class="liquid-content-container">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-semibold liquid-accent">${release.name}</h3>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-full ${badgeClass} text-white">
+                            ${releaseType}
+                        </span>
+                    </div>
+                    ${images ? `<div class="liquid-image-container mb-4">${images}</div>` : ''}
+                    <p class="liquid-text-shadow text-sm leading-relaxed">${text}</p>
+                </div>
+                <div class="liquid-button-container">
+                    <a href="${downloadUrl}" class="liquid-button ${badgeClass}" ${downloadUrl === '#' ? 'onclick="return false;" style="opacity: 0.5;"' : ''}>
+                        ⬇️ Download
+                    </a>
+                    <a href="${release.html_url}" class="liquid-button liquid-button-secondary">
+                        🔗 GitHub
+                    </a>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        function addCardHoverEffects() {
+            document.querySelectorAll('.liquid-release-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                    this.style.boxShadow = '0 0 40px rgba(78, 122, 199, 0.5), 0 20px 40px rgba(0, 0, 0, 0.4)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                    this.style.boxShadow = '';
+                });
+            });
+        }
+
+        // Load releases when page loads
+        document.addEventListener('DOMContentLoaded', loadReleases);
+
+        // Add scroll-based animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.liquid-fade-in, .liquid-fade-in-delay-1, .liquid-fade-in-delay-2, .liquid-fade-in-delay-3');
+            
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                
+                if (isVisible) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScrollAnimations);
+        window.addEventListener('load', handleScrollAnimations);
     </script>
 </body>
 </html>
