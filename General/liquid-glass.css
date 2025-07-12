@@ -49,6 +49,11 @@ body {
     overflow-x: hidden;
 }
 
+/* Ensure all text is white by default */
+body, body * {
+    color: white;
+}
+
 /* Animated background overlay */
 body::before {
     content: '';
@@ -137,9 +142,7 @@ body::before {
 
 /* ===== LIQUID GLASS BUTTONS ===== */
 .liquid-button {
-    background: linear-gradient(135deg, 
-        rgba(78, 122, 199, 0.3) 0%, 
-        rgba(255, 140, 66, 0.3) 100%);
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: var(--blur-light);
     -webkit-backdrop-filter: var(--blur-light);
     border: 1px solid var(--glass-border);
@@ -173,9 +176,7 @@ body::before {
 .liquid-button:hover {
     transform: translateY(-3px) scale(1.05);
     box-shadow: var(--shadow-medium), var(--shadow-glow);
-    background: linear-gradient(135deg, 
-        rgba(78, 122, 199, 0.5) 0%, 
-        rgba(255, 140, 66, 0.5) 100%);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .liquid-button:hover::before {
@@ -188,32 +189,51 @@ body::before {
 
 /* Button variants */
 .liquid-button-primary {
-    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--bright-orange) 100%);
-    border: 2px solid var(--accent-blue);
+    background: rgba(78, 122, 199, 0.3);
+    border: 2px solid rgba(78, 122, 199, 0.5);
+}
+
+.liquid-button-primary:hover {
+    background: rgba(78, 122, 199, 0.5);
 }
 
 .liquid-button-secondary {
-    background: linear-gradient(135deg, 
-        rgba(93, 78, 117, 0.4) 0%, 
-        rgba(45, 74, 125, 0.4) 100%);
-    border: 2px solid var(--mystical-purple);
+    background: rgba(93, 78, 117, 0.3);
+    border: 2px solid rgba(93, 78, 117, 0.5);
+}
+
+.liquid-button-secondary:hover {
+    background: rgba(93, 78, 117, 0.5);
 }
 
 .liquid-button-danger {
-    background: linear-gradient(135deg, 
-        rgba(255, 140, 66, 0.4) 0%, 
-        rgba(212, 116, 26, 0.4) 100%);
-    border: 2px solid var(--ghost-orange);
+    background: rgba(255, 140, 66, 0.3);
+    border: 2px solid rgba(255, 140, 66, 0.5);
+}
+
+.liquid-button-danger:hover {
+    background: rgba(255, 140, 66, 0.5);
 }
 
 /* ===== ACCENT ELEMENTS ===== */
 .liquid-accent {
-    background: linear-gradient(135deg, var(--accent-blue), var(--bright-orange));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: white;
     font-weight: bold;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== LIQUID GLASS CIRCLE ===== */
+.liquid-glass-circle {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: var(--blur-light);
+    -webkit-backdrop-filter: var(--blur-light);
+    border: 1px solid var(--glass-border);
+    transition: all var(--transition-medium);
+}
+
+.liquid-glass-circle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
 }
 
 /* ===== MYSTICAL ANIMATIONS ===== */
@@ -574,6 +594,7 @@ body::before {
 /* ===== UTILITY CLASSES ===== */
 .liquid-text-shadow {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    color: white;
 }
 
 .liquid-backdrop {
