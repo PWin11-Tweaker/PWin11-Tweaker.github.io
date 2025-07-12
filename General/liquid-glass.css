@@ -78,7 +78,7 @@ body::before {
 
 /* ===== LIQUID GLASS NAVIGATION ===== */
 .liquid-nav {
-    background: rgba(10, 10, 26, 0.15);
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: var(--blur-medium);
     -webkit-backdrop-filter: var(--blur-medium);
     border-bottom: 1px solid var(--glass-border);
@@ -87,16 +87,29 @@ body::before {
 }
 
 .liquid-nav:hover {
-    background: rgba(10, 10, 26, 0.25);
+    background: rgba(255, 255, 255, 0.08);
     box-shadow: var(--shadow-medium);
+}
+
+/* Navigation text styling */
+.liquid-nav h1,
+.liquid-nav a {
+    color: white !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.liquid-nav a {
+    transition: opacity var(--transition-fast) !important;
+}
+
+.liquid-nav a:hover {
+    opacity: 0.8;
+    color: white !important;
 }
 
 /* ===== LIQUID GLASS CARDS ===== */
 .liquid-card {
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.05) 0%, 
-        rgba(78, 122, 199, 0.08) 50%, 
-        rgba(255, 140, 66, 0.05) 100%);
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: var(--blur-medium);
     -webkit-backdrop-filter: var(--blur-medium);
     border: 1px solid var(--glass-border);
@@ -105,6 +118,7 @@ body::before {
     transition: all var(--transition-medium);
     position: relative;
     overflow: hidden;
+    color: white;
 }
 
 .liquid-card::before {
@@ -125,10 +139,7 @@ body::before {
 .liquid-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-heavy), var(--shadow-glow);
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.08) 0%, 
-        rgba(78, 122, 199, 0.12) 50%, 
-        rgba(255, 140, 66, 0.08) 100%);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .liquid-card:hover::before {
@@ -137,9 +148,7 @@ body::before {
 
 /* ===== LIQUID GLASS BUTTONS ===== */
 .liquid-button {
-    background: linear-gradient(135deg, 
-        rgba(78, 122, 199, 0.3) 0%, 
-        rgba(255, 140, 66, 0.3) 100%);
+    background: rgba(255, 255, 255, 0.08);
     backdrop-filter: var(--blur-light);
     -webkit-backdrop-filter: var(--blur-light);
     border: 1px solid var(--glass-border);
@@ -173,9 +182,7 @@ body::before {
 .liquid-button:hover {
     transform: translateY(-3px) scale(1.05);
     box-shadow: var(--shadow-medium), var(--shadow-glow);
-    background: linear-gradient(135deg, 
-        rgba(78, 122, 199, 0.5) 0%, 
-        rgba(255, 140, 66, 0.5) 100%);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .liquid-button:hover::before {
@@ -188,22 +195,30 @@ body::before {
 
 /* Button variants */
 .liquid-button-primary {
-    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--bright-orange) 100%);
-    border: 2px solid var(--accent-blue);
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.liquid-button-primary:hover {
+    background: rgba(255, 255, 255, 0.18);
 }
 
 .liquid-button-secondary {
-    background: linear-gradient(135deg, 
-        rgba(93, 78, 117, 0.4) 0%, 
-        rgba(45, 74, 125, 0.4) 100%);
-    border: 2px solid var(--mystical-purple);
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.liquid-button-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .liquid-button-danger {
-    background: linear-gradient(135deg, 
-        rgba(255, 140, 66, 0.4) 0%, 
-        rgba(212, 116, 26, 0.4) 100%);
-    border: 2px solid var(--ghost-orange);
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.liquid-button-danger:hover {
+    background: rgba(255, 255, 255, 0.15);
 }
 
 /* ===== ACCENT ELEMENTS ===== */
@@ -452,21 +467,17 @@ body::before {
 
 /* ===== FOOTER STYLES ===== */
 .liquid-footer {
-    background: linear-gradient(135deg, 
-        rgba(10, 10, 26, 0.2) 0%, 
-        rgba(45, 74, 125, 0.1) 100%);
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: var(--blur-medium);
     -webkit-backdrop-filter: var(--blur-medium);
     border-top: 1px solid var(--glass-border);
     box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+    color: white;
 }
 
 /* ===== RELEASE CARDS (specific to download page) ===== */
 .liquid-release-card {
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.03) 0%, 
-        rgba(78, 122, 199, 0.06) 50%, 
-        rgba(255, 140, 66, 0.03) 100%);
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: var(--blur-medium);
     -webkit-backdrop-filter: var(--blur-medium);
     border: 1px solid var(--glass-border);
@@ -478,15 +489,13 @@ body::before {
     min-height: 400px;
     position: relative;
     overflow: hidden;
+    color: white;
 }
 
 .liquid-release-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-heavy), var(--shadow-glow);
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.06) 0%, 
-        rgba(78, 122, 199, 0.1) 50%, 
-        rgba(255, 140, 66, 0.06) 100%);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 /* Content containers */
@@ -591,6 +600,31 @@ body::before {
 
 .liquid-glow {
     box-shadow: var(--shadow-glow);
+}
+
+/* ===== GLOBAL TEXT STYLES ===== */
+/* Ensure all text is white by default */
+body, 
+p, 
+span, 
+div:not(.liquid-accent), 
+h1:not(.liquid-accent), 
+h2:not(.liquid-accent), 
+h3:not(.liquid-accent), 
+h4:not(.liquid-accent), 
+h5:not(.liquid-accent), 
+h6:not(.liquid-accent),
+li {
+    color: white !important;
+}
+
+/* Ensure all card content is white */
+.liquid-card *:not(.liquid-accent):not(.liquid-button) {
+    color: white !important;
+}
+
+.liquid-release-card *:not(.liquid-accent):not(.liquid-button) {
+    color: white !important;
 }
 
 /* ===== Z-INDEX MANAGEMENT ===== */
